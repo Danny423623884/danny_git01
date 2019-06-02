@@ -9,12 +9,23 @@
 <body>
     <div id="app">
         {{message}}
+        <hr/>
+        {{num==10?'男':'女'}}
+        <hr/>
+        <button v-on:click="fun('danny')">点击</button>
+        <button @click="fun('vinson')">点我</button>
     </div>
 <script>
     var app = new Vue({
         el:'#app',
         data:{
-            message:'HELLO VUEJS.....'
+            message:'HELLO VUEJS.....',
+            num:10
+        },
+        methods:{
+            fun:function (str) {
+                this.message = '变成了:'+str;
+            }
         }
     })
 </script>
