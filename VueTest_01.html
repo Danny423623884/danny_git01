@@ -7,13 +7,18 @@
     <!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
 </head>
 <body>
-    <div id="app">
+    <div id="app" style="width: 500px;height: 500px">
         {{message}}
         <hr/>
         {{num==10?'男':'女'}}
         <hr/>
         <button v-on:click="fun('danny')">点击</button>
         <button @click="fun('vinson')">点我</button>
+        <hr/>
+        <input type="text" id="key1" @keydown="fun2($event)"><hr/>
+        <div id="maopao1" style="width: 400px;height: 100px;background-color: yellow" @mouseover="fun3">
+            <textarea id="maopao2" rows="5" cols="30" @mouseover="fun4($event)"></textarea>
+        </div>
     </div>
 <script>
     var app = new Vue({
@@ -25,6 +30,19 @@
         methods:{
             fun:function (str) {
                 this.message = '变成了:'+str;
+            },
+            fun2:function (e) {
+                if(e.keyCode >= 48 && e.keyCode <= 57) {
+                    alert('你输入的是数字');
+                    e.preventDefault();
+                }
+            },
+            fun3:function () {
+                alert('我是冒泡1');
+            },
+            fun4:function (e) {
+                alert('我是冒泡2');
+                e.stopPropagation();
             }
         }
     })

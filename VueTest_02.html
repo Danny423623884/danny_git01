@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJs_02</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app" :style="'background-color:' + color">
+    {{message}}<br/>
+    <input type="text" v-model="username"><br/>
+    <button @click="fun">点我显示</button>
+    <li v-for="(num,index) in arr">{{num}}==={{index}}</li>
+    <li v-for="(value,name) in user">{{value}}==={{name}}</li>
+    <li v-for="(u,index) in userList">{{u.hoppy}}:{{u.work}}====={{index}}</li>
+</div>
+
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            color:'yellow',
+            message:'danny',
+            username:'vinson',
+            arr:[1,2,3,4],
+            user:{
+                age:15,
+                addr:'黄石'
+            },
+            userList:[
+                {
+                    hoppy:'篮球',
+                    work:'程序员'
+                },
+                {
+                    hoppy:'游泳',
+                    work:'销售员'
+                },
+                {
+                    hoppy:'足球',
+                    work:'文员'
+                }
+            ]
+        },
+        methods:{
+            fun:function () {
+                alert(this.username);
+            }
+        }
+    });
+</script>
+</body>
+</html>
